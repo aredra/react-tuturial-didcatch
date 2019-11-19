@@ -1,19 +1,23 @@
 import React, {Component} from 'react';
+import * as Sentry from '@sentry/browser';
 
 class ErrorBoundary extends Component {
     state = {
         error : false
     }
 
-    componentDidCatch(err, info) {
+    componentDidCatch(error, info) {
         console.log('error!!');
         console.log({
-            err,
+            error,
             info
         });
         this.setState({
             error: true,
-        })
+        });
+        if (process.env.NODE_ENV === 'production') {
+            Sentry.captureException(error, { extra: info});
+        }
     }
 
     render() {
