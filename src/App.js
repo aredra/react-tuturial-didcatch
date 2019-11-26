@@ -4,15 +4,12 @@ import User from './User';
 import ErrorBoundary from './ErrorBoundary';
 
 function App() {
-  // const user ={
-  //   id: "aredra",
-  //   name: "Are"
-  // }
 
-  return (
-    <ErrorBoundary>
-      <div>WOWOWOW</div>    
-      <User   />
+
+  return ( 
+    <ErrorBoundary >
+      <div > WOWOdiv </div> 
+      <User / >
     </ErrorBoundary>
   );
 }
